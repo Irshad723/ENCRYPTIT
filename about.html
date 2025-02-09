@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Algorithms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h3>About the Encryption Algorithms</h3>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Overview of Encryption Algorithms</h2>
+
+            <section>
+                <h3>1. Caesar Cipher</h3>
+                <p>The Caesar Cipher is a type of substitution cipher where each letter in the plaintext is shifted by a certain number of places down or up the alphabet.</p>
+                <p><strong>Example:</strong> With a shift of 3, 'A' becomes 'D', 'B' becomes 'E', and so on.</p>
+            </section>
+
+            <section>
+                <h3>2. Vigenère Cipher</h3>
+                <p>The Vigenère Cipher is a more complex form of substitution cipher where each letter in the plaintext is shifted according to the corresponding letter in a key.</p>
+                <p><strong>Example:</strong> If the key is "KEY", then 'A' is shifted by 'K' (10 positions), 'B' by 'E' (4 positions), etc.</p>
+            </section>
+
+            <section>
+                <h3>3. XOR Cipher</h3>
+                <p>The XOR cipher is a symmetric key encryption technique where each bit of the plaintext is XORed with a corresponding bit of the key. The XOR operation is reversible, meaning it can be used for both encryption and decryption.</p>
+                <p><strong>Example:</strong> XORing the binary of 'A' with the binary of a key (e.g., 01100101) produces a ciphertext that can be reversed with the same key.</p>
+            </section>
+
+            <section>
+                <h3>4. Atbash Cipher</h3>
+                <p>The Atbash Cipher is a simple substitution cipher where each letter in the alphabet is mapped to its reverse counterpart.</p>
+                <p><strong>Example:</strong> 'A' becomes 'Z', 'B' becomes 'Y', and so on.</p>
+            </section>
+
+            <section>
+                <h3>5. Rot13 Cipher</h3>
+                <p>The Rot13 Cipher is a special case of the Caesar Cipher where the shift is always 13. It is commonly used to obscure text without requiring a key.</p>
+                <p><strong>Example:</strong> 'A' becomes 'N', 'B' becomes 'O', and so on.</p>
+            </section>
+
+            <div>
+                <button onclick="window.location.href='index.html'">Back to App</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

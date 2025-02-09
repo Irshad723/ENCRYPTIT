@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Cipher Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>ENCRYPTIT</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Encrypt & Decrypt Messages</h2>
+
+            <label for="cipher">Select Cipher:</label>
+            <select id="cipher">
+                <option value="caesar">Caesar Cipher</option>
+                <option value="vigenere">Vigenère Cipher</option>
+                <option value="xor">XOR Cipher</option>
+                <option value="atbash">Atbash Cipher</option>
+                <option value="rot13">Rot13 Cipher</option>
+            </select>
+
+            <label for="key">Enter Key (if required):</label>
+            <input type="text" id="key" placeholder="e.g., 3 for Caesar, keyword for Vigenère">
+
+            <label for="message">Enter Message:</label>
+            <textarea id="message" placeholder="Type your message here..."></textarea>
+
+            <div class="buttons">
+                <button id="encrypt-btn">Encrypt</button>
+                <button id="decrypt-btn">Decrypt</button>
+                <button id="about-btn">About the Algorithms</button>
+                <button id="exit-btn">Exit</button>
+            </div>
+
+            <h3>Result:</h3>
+            <textarea id="result" readonly></textarea>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
