@@ -1,3 +1,16 @@
+// Function to validate input text (Only allows letters)
+function isValidText(text) {
+    return /^[A-Za-z\s]+$/.test(text); // Only allows letters and spaces
+}
+
+// Function to validate key (For Caesar & XOR, only numbers are allowed)
+function isValidKey(key, cipher) {
+    if (cipher === "caesar" || cipher === "xor") {
+        return /^\d+$/.test(key); // Only numbers allowed
+    }
+    return /^[A-Za-z]+$/.test(key); // For Vigenère, only letters allowed
+}
+
 // Caesar Cipher
 function caesarEncrypt(text, shift) {
     let result = "";
@@ -103,53 +116,93 @@ function rot13Encrypt(text) {
     return result;
 }
 
-// Event Handlers for Buttons
-document.getElementById('encrypt-btn').addEventListener('click', function() {
+// Function to show error messages
+function showError(message) {
+    alert(message);
+}
+
+// Encrypt Button
+document.getElementById('encrypt-btn').addEventListener('click', function () {
     const cipher = document.getElementById('cipher').value;
-    const message = document.getElementById('message').value;
-    const key = document.getElementById('key').value;
+    const message = document.getElementById('message').value.trim();
+    const key = document.getElementById('key').value.trim();
     let result = "";
 
-    if (cipher === 'caesar') {
-        result = caesarEncrypt(message, parseInt(key));
-    } else if (cipher === 'vigenere') {
+    // Validate Message
+    if (!isValidText(message)) {
+        showError("Invalid message! Only letters and spaces are allowed.");
+        return;
+    }
+
+    // Validate Key
+    if (key !== "" && !isValidKey(key, cipher)) {
+        showError("Invalid key! Caesar & XOR require numbers. Vigenère requires letters.");
+        return;
+    }
+
+    // Encryption Logic
+    if (cipher === "caesar") {
+        result = caesarEncrypt(message, parseInt(key) || 0);
+    } else if (cipher === "vigenere") {
         result = vigenereEncrypt(message, key);
-    } else if (cipher === 'xor') {
-        result = xorEncrypt(message, parseInt(key));
-    } else if (cipher === 'atbash') {
+    } else if (cipher === "xor") {
+        result = xorEncrypt(message, parseInt(key) || 0);
+    } else if (cipher === "atbash") {
         result = atbashEncrypt(message);
-    } else if (cipher === 'rot13') {
+    } else if (cipher === "rot13") {
         result = rot13Encrypt(message);
     }
 
     document.getElementById('result').value = result;
 });
 
-document.getElementById('decrypt-btn').addEventListener('click', function() {
+// Decrypt Button
+document.getElementById('decrypt-btn').addEventListener('click', function () {
     const cipher = document.getElementById('cipher').value;
-    const message = document.getElementById('message').value;
-    const key = document.getElementById('key').value;
+    const message = document.getElementById('message').value.trim();
+    const key = document.getElementById('key').value.trim();
     let result = "";
 
-    if (cipher === 'caesar') {
-        result = caesarDecrypt(message, parseInt(key));
-    } else if (cipher === 'vigenere') {
+    // Validate Message
+    if (!isValidText(message)) {
+        showError("Invalid message! Only letters and spaces are allowed.");
+        return;
+    }
+
+    // Validate Key
+    if (key !== "" && !isValidKey(key, cipher)) {
+        showError("Invalid key! Caesar & XOR require numbers. Vigenère requires letters.");
+        return;
+    }
+
+    // Decryption Logic
+    if (cipher === "caesar") {
+        result = caesarDecrypt(message, parseInt(key) || 0);
+    } else if (cipher === "vigenere") {
         result = vigenereDecrypt(message, key);
-    } else if (cipher === 'xor') {
-        result = xorDecrypt(message, parseInt(key));
-    } else if (cipher === 'atbash') {
-        result = atbashEncrypt(message);
-    } else if (cipher === 'rot13') {
-        result = rot13Encrypt(message);
+    } else if (cipher === "xor") {
+        result = xorDecrypt(message, parseInt(key) || 0);
+    } else if (cipher === "atbash") {
+        result = atbashEncrypt(message); // Atbash is symmetric
+    } else if (cipher === "rot13") {
+        result = rot13Encrypt(message); // Rot13 is symmetric
     }
 
     document.getElementById('result').value = result;
 });
 
-document.getElementById('exit-btn').addEventListener('click', function() {
+// About Algorithms Button
+document.getElementById('about-btn').addEventListener('click', function () {
+    window.location.href = 'about.html';
+});
+
+// Exit Button
+document.getElementById('exit-btn').addEventListener('click', function () {
     alert("Exiting the application!");
     window.close();
 });
-document.getElementById('about-btn').addEventListener('click', function() {
-    window.location.href = 'about.html';  // Redirect to the About page
-});
+
+
+
+
+    
