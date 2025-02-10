@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(background.jpg);
+    color: #E0E0E0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    color: #00FFF5;
+}
+h2{
+    color: #e4d33d;
+}
+h3{
+    color:#b24ce0
+}
+
+header {
+    background-color:transparent;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+    
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    font-family: 'Times New Roman';
+    font-weight: lighter;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    background: #2A2A2A;
+    color: white;
+}
+
+button {
+    background: #0ae64c;
+    
+    border: none;
+    color: rgb(10, 10, 10);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    
+}
+/* Encrypt Button - Blue */
+button#encrypt-btn {
+    
+    background-color: #007BFF;
+}
+
+button#encrypt-btn:hover {
+    background-color: #2b527c;
+}
+
+/* Decrypt Button - Green */
+button#decrypt-btn {
+    background-color: #1af14c;
+}
+
+button#decrypt-btn:hover {
+    background-color: #218838;
+}
+
+/* Exit Button - Red */
+button#exit-btn {
+    background-color: #f70d25;
+}
+
+button#exit-btn:hover {
+    background-color: #c82333;
+}
+/* Button Colors for About Page */
+button#back-btn {
+    background-color: #1e7add;
+}
+
+button#back-btn:hover {
+    background-color: #203955;
+}
+/* Button Colors for About Page */
+button#about-btn {
+    background-color: #ecb641;
+}
+
+button#about-btn:hover {
+    background-color: #bb7f3b;
+}
+
+
