@@ -1,47 +1,46 @@
+/* Cybersecurity Background */
 body {
     font-family: Arial, sans-serif;
-    background-color:#000000;
     color: #E0E0E0;
     text-align: center;
     margin: 0;
     padding: 0;
-}
-h1{
-    color: #00FFF5;
-}
-h2{
-    color: #e4d33d;
-}
-h3{
-    color:#b24ce0
+    background: url('background3.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
+/* Dark Overlay for Better Readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    z-index: -1;
+}
+
+/* Header */
 header {
-    background-color:transparent;
+    background-color: rgba(30, 30, 30, 0.7);
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
-    font-family: 'Times New Roman';
-    
 }
 
+/* Container */
 .container {
     width: 50%;
     margin: auto;
-    background: #1E1E1E;
+    background: rgba(30, 30, 30, 0.8); /* Semi-transparent background */
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-    font-family: 'Times New Roman';
-    font-weight: lighter;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-}
-
+/* Inputs & Select */
 input, textarea, select {
     width: 100%;
     padding: 10px;
@@ -52,59 +51,49 @@ input, textarea, select {
     color: white;
 }
 
+/* Buttons */
 button {
-    background: #0ae64c;
-    
     border: none;
-    color: rgb(10, 10, 10);
+    color: white;
     padding: 10px 20px;
     margin: 5px;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
-    
+    font-size: 16px;
 }
+
 /* Encrypt Button - Blue */
 button#encrypt-btn {
-    
     background-color: #007BFF;
 }
 
 button#encrypt-btn:hover {
-    background-color: #2b527c;
+    background-color: #0056b3;
 }
 
 /* Decrypt Button - Green */
 button#decrypt-btn {
-    background-color: #1af14c;
+    background-color: #28a745;
 }
 
 button#decrypt-btn:hover {
     background-color: #218838;
 }
 
+/* About Button - Orange */
+button#about-btn {
+    background-color: #FFA500;
+}
+
+button#about-btn:hover {
+    background-color: #cc8400;
+}
+
 /* Exit Button - Red */
 button#exit-btn {
-    background-color: #f70d25;
+    background-color: #dc3545;
 }
 
 button#exit-btn:hover {
     background-color: #c82333;
 }
-/* Button Colors for About Page */
-button#back-btn {
-    background-color: #1e7add;
-}
-
-button#back-btn:hover {
-    background-color: #203955;
-}
-/* Button Colors for About Page */
-button#about-btn {
-    background-color: #ecb641;
-}
-
-button#about-btn:hover {
-    background-color: #bb7f3b;
-}
-
-
