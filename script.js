@@ -1,14 +1,17 @@
-// Function to validate input text (Only allows letters)
-function isValidText(text) {
-    return /^[A-Za-z\s]+$/.test(text); // Only allows letters and spaces
+// Function to validate input text (Allows everything for XOR, restricts others)
+function isValidText(text, cipher) {
+    if (cipher === "xor") {
+        return true; // XOR allows all characters
+    }
+    return /^[A-Za-z\s]+$/.test(text); // Other ciphers allow only letters and spaces
 }
 
-// Function to validate key (For Caesar & XOR, only numbers are allowed)
+// Function to validate key
 function isValidKey(key, cipher) {
     if (cipher === "caesar" || cipher === "xor") {
-        return /^\d+$/.test(key); // Only numbers allowed
+        return /^\d+$/.test(key); // Caesar & XOR require numbers
     }
-    return /^[A-Za-z]+$/.test(key); // For Vigenère, only letters allowed
+    return /^[A-Za-z]+$/.test(key); // Vigenère requires letters
 }
 
 // Caesar Cipher
@@ -66,18 +69,19 @@ function vigenereDecrypt(text, key) {
     return result;
 }
 
-// XOR Cipher
+// XOR Cipher (Now supports special characters and numbers)
 function xorEncrypt(text, key) {
     let result = "";
     for (let char of text) {
         result += String.fromCharCode(char.charCodeAt(0) ^ key);
     }
-    return result;
+    return btoa(result); // Encode to Base64 for readability
 }
 
 function xorDecrypt(text, key) {
+    let decodedText = atob(text); // Decode Base64
     let result = "";
-    for (let char of text) {
+    for (let char of decodedText) {
         result += String.fromCharCode(char.charCodeAt(0) ^ key);
     }
     return result;
@@ -129,8 +133,8 @@ document.getElementById('encrypt-btn').addEventListener('click', function () {
     let result = "";
 
     // Validate Message
-    if (!isValidText(message)) {
-        showError("Invalid message! Only letters and spaces are allowed.");
+    if (!isValidText(message, cipher)) {
+        showError("Invalid message! Only letters and spaces are allowed for selected cipher.");
         return;
     }
 
@@ -164,8 +168,8 @@ document.getElementById('decrypt-btn').addEventListener('click', function () {
     let result = "";
 
     // Validate Message
-    if (!isValidText(message)) {
-        showError("Invalid message! Only letters and spaces are allowed.");
+    if (!isValidText(message, cipher)) {
+        showError("Invalid message! Only letters and spaces are allowed for selected cipher.");
         return;
     }
 
@@ -201,8 +205,3 @@ document.getElementById('exit-btn').addEventListener('click', function () {
     alert("Exiting the application!");
     window.close();
 });
-
-
-
-
-    
