@@ -8,6 +8,15 @@ body {
     background: url('Bg.jpg') no-repeat center center fixed;
     background-size: cover;
 }
+h1{
+    color: aqua;
+}
+h2{
+    color: rgb(241, 126, 252);
+}
+h3{
+    color: #74b6fd;
+}
 
 /* Blur Effect */
 body::before {
@@ -39,7 +48,7 @@ body::after {
 .container {
     width: 50%;
     margin: auto;
-    background: rgba(30, 30, 30, 0.8);
+    background: #3f3e3e;
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
